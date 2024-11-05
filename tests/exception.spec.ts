@@ -41,7 +41,7 @@ test.group('Exception', () => {
     } catch (error) {
       console.log(import.meta.url)
       console.log(fileURLToPath(import.meta.url))
-      console.log(error.stack)
+      console.log(error.stack.split('\n')[1])
       expect(error.stack.split('\n')[1]).toMatch(new RegExp(fileURLToPath(import.meta.url)))
     }
   })
