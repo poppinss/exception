@@ -39,10 +39,7 @@ test.group('Exception', () => {
     try {
       throw new Exception('Some message')
     } catch (error) {
-      console.log(import.meta.url)
-      console.log(fileURLToPath(import.meta.url))
-      console.log(error.stack.split('\n')[1])
-      expect(error.stack.split('\n')[1]).toMatch(new RegExp(fileURLToPath(import.meta.url)))
+      expect(error.stack.split('\n')[1]).toContain(fileURLToPath(import.meta.url))
     }
   })
 
@@ -57,7 +54,7 @@ test.group('Exception', () => {
     try {
       throw new UserNotFound(UserNotFound.message)
     } catch (error) {
-      expect(error.stack.split('\n')[1]).toMatch(new RegExp(fileURLToPath(import.meta.url)))
+      expect(error.stack.split('\n')[1]).toContain(fileURLToPath(import.meta.url))
     }
   })
 
@@ -106,7 +103,7 @@ test.group('Exception', () => {
 
     const error = new UserNotFound()
     expect(error.message).toEqual('Unable to find user')
-    expect(error.stack!).toMatch(/UserNotFound: Unable to find user/)
+    expect(error.stack!).toContain('UserNotFound: Unable to find user')
   })
 
   test('Convert error to string', ({ expect }) => {
@@ -143,7 +140,7 @@ test.group('Exception', () => {
       throw new E_USER_NOT_FOUND()
     } catch (error) {
       expect(error.message).toEqual('Unable to find user')
-      expect(error.stack.split('\n')[1]).toMatch(new RegExp(fileURLToPath(import.meta.url)))
+      expect(error.stack.split('\n')[1]).toContain(fileURLToPath(import.meta.url))
     }
   })
 
@@ -155,7 +152,7 @@ test.group('Exception', () => {
       throw new E_USER_NOT_FOUND(['user'])
     } catch (error) {
       expect(error.message).toEqual('Unable to find user')
-      expect(error.stack.split('\n')[1]).toMatch(new RegExp(fileURLToPath(import.meta.url)))
+      expect(error.stack.split('\n')[1]).toContain(fileURLToPath(import.meta.url))
     }
   })
 
