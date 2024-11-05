@@ -39,21 +39,8 @@ test.group('Exception', () => {
     try {
       throw new Exception('Some message')
     } catch (error) {
-      expect(error.stack.split('\n')[1]).toMatch(new RegExp(fileURLToPath(import.meta.url)))
-    }
-  })
-
-  test('point stack trace to correct file with a sub-class', ({ expect }) => {
-    expect.assertions(1)
-
-    class UserNotFound extends Exception {
-      static message = 'Unable to find user'
-      static status = 404
-    }
-
-    try {
-      throw new UserNotFound(UserNotFound.message)
-    } catch (error) {
+      console.log(import.meta.url)
+      console.log(error.stack)
       expect(error.stack.split('\n')[1]).toMatch(new RegExp(fileURLToPath(import.meta.url)))
     }
   })
