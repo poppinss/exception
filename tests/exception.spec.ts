@@ -40,6 +40,7 @@ test.group('Exception', () => {
       throw new Exception('Some message')
     } catch (error) {
       console.log(import.meta.url)
+      console.log(fileURLToPath(import.meta.url))
       console.log(error.stack)
       expect(error.stack.split('\n')[1]).toMatch(new RegExp(fileURLToPath(import.meta.url)))
     }
