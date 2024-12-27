@@ -91,6 +91,16 @@ export class Exception extends Error {
   }
 }
 
+export class InvalidArgumentsException extends Exception {
+  static code = 'E_INVALID_ARGUMENTS_EXCEPTION'
+  static status = 500
+}
+
+export class RuntimeException extends Exception {
+  static code = 'E_RUNTIME_EXCEPTION'
+  static status = 500
+}
+
 /**
  * Helper to create an anonymous error class.
  *
