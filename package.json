@@ -3,7 +3,7 @@
   "description": "Utility to create custom exceptions",
   "version": "1.2.0",
   "engines": {
-    "node": ">=20.6.0"
+    "node": ">=18"
   },
   "type": "module",
   "files": [
