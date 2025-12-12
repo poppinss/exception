@@ -7,4 +7,4 @@
  * file that was distributed with this source code.
  */
 
-export * from './src/exception.js'
+export * from './src/exception.ts'

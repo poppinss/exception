@@ -9,7 +9,7 @@
 
 import { test } from '@japa/runner'
 import { fileURLToPath } from 'node:url'
-import { createError, Exception } from '../src/exception.js'
+import { createError, Exception } from '../src/exception.ts'
 
 test.group('Exception', () => {
   test('create exception with error code', ({ expect }) => {
